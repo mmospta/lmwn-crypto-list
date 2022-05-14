@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import SDWebImage
+import SDWebImageSVGCoder
 
 @main
 struct Crypto_ListApp: App {
+    init() {
+        setUpDependencies()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CryptoListView()
         }
+    }
+}
+
+private extension Crypto_ListApp {
+    func setUpDependencies() {
+        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
     }
 }

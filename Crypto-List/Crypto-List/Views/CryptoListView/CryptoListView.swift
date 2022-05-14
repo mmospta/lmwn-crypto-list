@@ -8,8 +8,38 @@
 import SwiftUI
 
 struct CryptoListView: View {
+    @StateObject private var viewModel = CryptoListViewModel()
+    
+    init() {
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack(alignment: .leading) {
+                Text("Buy, sell and hold crypto")
+                    .font(.system(size: 16))
+                    .fontWeight(.bold)
+                    .padding(.horizontal, 8)
+                List(viewModel.coins, id: \.uuid) { coin in
+                    CoinListRow(coin: coin)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
+                }
+                .listStyle(.plain)
+                .onAppear {
+                    viewModel.getCrytoCoin()
+                }
+                .refreshable {
+                    viewModel.getCrytoCoin()
+                }
+            }
+            .padding(.horizontal, 8)
+            
+            if viewModel.isLoading {
+                LoadingView()
+            }
+        }
     }
 }
 
