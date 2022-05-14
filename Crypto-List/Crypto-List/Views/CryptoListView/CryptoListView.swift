@@ -1,0 +1,20 @@
+//
+//  CryptoListView.swift
+//  Crypto-List
+//
+//  Created by Phonthep Aungkanukulwit on 14/5/2565 BE.
+//
+
+import SwiftUI
+
+struct CryptoListView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct CryptoListView_Previews: PreviewProvider {
+    static var previews: some View {
+        CryptoListView()
+    }
+}
