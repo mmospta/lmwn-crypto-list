@@ -24,7 +24,7 @@ struct CoinDetailView: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         VStack(alignment: .leading, spacing: 8) {
-                            HStack {
+                            HStack(alignment: .top) {
                                 Text(coin.name)
                                     .font(.system(size: 18))
                                     .fontWeight(.bold)
@@ -37,7 +37,7 @@ struct CoinDetailView: View {
                                 Text("PRICE")
                                     .font(.system(size: 12))
                                     .fontWeight(.bold)
-                                Text(String(format: "$ %.2f", Double(coin.price) ?? 0))
+                                Text(String(format: "$ %.2f", Double(coin.price ?? "0") ?? 0))
                                     .font(.system(size: 12))
                                     .fontWeight(.regular)
                             }
@@ -45,7 +45,7 @@ struct CoinDetailView: View {
                                 Text("MARKET CAP")
                                     .font(.system(size: 12))
                                     .fontWeight(.bold)
-                                Text(String(format: "$ %.2f", Double(coin.marketCap) ?? 0))
+                                Text(String(format: "$ %.2f", Double(coin.marketCap ?? "0") ?? 0))
                                     .font(.system(size: 12))
                                     .fontWeight(.regular)
                             }
@@ -73,7 +73,6 @@ struct CoinDetailView: View {
                 }
                 .padding(16)
             }
-            
             
             if let url = URL(string: coin.coinrankingURL),
                !coin.coinrankingURL.isEmpty {

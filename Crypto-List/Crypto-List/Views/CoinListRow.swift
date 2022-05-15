@@ -16,7 +16,7 @@ struct CoinListRow: View {
     var body: some View {
         HStack {
             HStack(spacing: 16) {
-                WebImage(url: URL(string: coin.iconURL)!,
+                WebImage(url: URL(string: coin.iconURL),
                          context: [.imageThumbnailPixelSize : CGSize.zero])
                 .resizable()
                 .frame(width: 40, height: 40)
@@ -32,17 +32,17 @@ struct CoinListRow: View {
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 8) {
-                Text(String(format: "$ %.4f", Double(coin.price) ?? 0))
+                Text(String(format: "$ %.4f", Double(coin.price ?? "0") ?? 0))
                     .font(.system(size: 12))
                     .fontWeight(.bold)
                     .foregroundColor(Color.init(hex: "#333333"))
                 HStack(spacing: 2) {
-                    let change = Double(coin.change) ?? 0
+                    let change = Double(coin.change ?? "0") ?? 0
                     if change >= 0 {
                         Image("GreenArrow")
                             .resizable()
                             .frame(width: 12, height: 12)
-                        Text(coin.change)
+                        Text(coin.change ?? "0")
                             .font(.system(size: 12))
                             .fontWeight(.bold)
                             .foregroundColor(Color.init(hex: "#13BC24"))
@@ -50,12 +50,11 @@ struct CoinListRow: View {
                         Image("RedArrow")
                             .resizable()
                             .frame(width: 12, height: 12)
-                        Text(coin.change)
+                        Text(coin.change ?? "0")
                             .font(.system(size: 12))
                             .fontWeight(.bold)
                             .foregroundColor(Color.init(hex: "#F82D2D"))
                     }
-                    
                 }
             }
         }
