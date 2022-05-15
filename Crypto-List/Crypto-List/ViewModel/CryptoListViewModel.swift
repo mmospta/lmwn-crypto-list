@@ -63,11 +63,13 @@ class CryptoListViewModel: ObservableObject {
     }
     
     func fetchSearchCoin(searchQuery: String) {
+        isFirstLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             NetworkManager.shared.fetchSearchCoin(searchQuery: searchQuery) { [weak self] result in
                 DispatchQueue.main.async { [self] in
                     switch result {
                     case .success(let response):
+                        self?.isFirstLoading = false
                         self?.coins = response.data.coins
                         if response.data.coins.isEmpty {
                             self?.isShowSearchNoResultView = true
@@ -75,6 +77,7 @@ class CryptoListViewModel: ObservableObject {
                             self?.isShowSearchNoResultView = false
                         }
                     case .failure:
+                        self?.isFirstLoading = false
                         self?.isShowSearchNoResultView = true
                     }
                 }
@@ -96,6 +99,13 @@ class CryptoListViewModel: ObservableObject {
             isSearch = true
             clearCoins()
             fetchSearchCoin(searchQuery: searchQuery)
+        }
+    }
+    
+    func pullRefresh() {
+        if !isSearch {
+            clearCoins()
+            getCrytoCoin()
         }
     }
 }

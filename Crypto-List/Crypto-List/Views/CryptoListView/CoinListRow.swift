@@ -24,10 +24,12 @@ struct CoinListRow: View {
                     Text(coin.name)
                         .font(.system(size: 16))
                         .fontWeight(.bold)
+                        .lineLimit(1)
                     Text(coin.symbol)
                         .font(.system(size: 14))
                         .fontWeight(.bold)
                         .foregroundColor(.gray)
+                        .lineLimit(1)
                 }
             }
             Spacer()

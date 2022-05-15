@@ -94,6 +94,17 @@ struct CryptoListView: View {
                                             }
                                     } else if viewModel.isSearch {
                                         CoinListRow(coin: coin)
+                                            .onTapGesture {
+                                                viewModel.isShowingSheet = true
+                                                viewModel.coinDetail = coin
+                                            }
+                                            .sheet(isPresented: $viewModel.isShowingSheet, onDismiss: {
+                                                viewModel.isShowingSheet = false
+                                            }, content: {
+                                                if let coinDetail = viewModel.coinDetail {
+                                                    CoinDetailView(isShowingSheet: $viewModel.isShowingSheet, coin: coinDetail)
+                                                }
+                                            })
                                     }
                                 }
                             }
@@ -103,10 +114,7 @@ struct CryptoListView: View {
                         }
                         .listStyle(.grouped)
                         .refreshable {
-                            if !viewModel.isSearch {
-                                viewModel.clearCoins()
-                                viewModel.getCrytoCoin()
-                            }
+                            viewModel.pullRefresh()
                         }
                     }
                     
@@ -124,11 +132,11 @@ struct CryptoListView: View {
             }
         }
         .searchable(text: $searchQuery)
-        .onAppear {
-            viewModel.getCrytoCoin()
-        }
         .onChange(of: searchQuery) { searchQuery in
             viewModel.searchCoins(searchQuery: searchQuery)
+        }
+        .onAppear {
+            viewModel.getCrytoCoin()
         }
     }
 }
