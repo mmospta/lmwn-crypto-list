@@ -14,7 +14,6 @@ struct CryptoListHeader: View {
             .fontWeight(.bold)
             .foregroundColor(.black)
             .background(.clear)
-//            .padding(.horizontal, 8)
     }
 }
 

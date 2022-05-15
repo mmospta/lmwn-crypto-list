@@ -135,18 +135,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8D0FE34328317C2E0061DF8D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D486C67282FC6290014CB7A /* CryptoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8D0FE34428317C460061DF8D /* TopRankView */ = {
+			isa = PBXGroup;
+			children = (
+				8D7E6D1A28313790009F9737 /* TopRankItemView.swift */,
+				8D0FE33F2831670D0061DF8D /* TopRankSectionHeader.swift */,
+			);
+			path = TopRankView;
+			sourceTree = "<group>";
+		};
+		8D0FE34628317C680061DF8D /* CoinDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8D486C71283009400014CB7A /* CoinDetailView.swift */,
+			);
+			path = CoinDetailView;
+			sourceTree = "<group>";
+		};
 		8D3C3F37282FC3DD00FC8942 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8D3C3F3A282FC49300FC8942 /* CryptoListView */,
-				8D486C6B282FF45A0014CB7A /* CoinListRow.swift */,
+				8D0FE34628317C680061DF8D /* CoinDetailView */,
+				8D0FE34428317C460061DF8D /* TopRankView */,
 				8D486C6F2830022A0014CB7A /* LoadingView.swift */,
-				8D486C71283009400014CB7A /* CoinDetailView.swift */,
 				8D486C852830E80F0014CB7A /* ErrorView.swift */,
 				8D486C87283127A10014CB7A /* SearchNoResultView.swift */,
-				8D7E6D1A28313790009F9737 /* TopRankItemView.swift */,
-				8D0FE33F2831670D0061DF8D /* TopRankSectionHeader.swift */,
-				8D0FE341283167580061DF8D /* CryptoListHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,7 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				8D3C3F3B282FC4B000FC8942 /* CryptoListView.swift */,
-				8D486C67282FC6290014CB7A /* CryptoListViewModel.swift */,
+				8D486C6B282FF45A0014CB7A /* CoinListRow.swift */,
+				8D0FE341283167580061DF8D /* CryptoListHeader.swift */,
 			);
 			path = CryptoListView;
 			sourceTree = "<group>";
@@ -205,6 +228,7 @@
 			children = (
 				8DDD202F282FC06B006BFD14 /* Crypto_ListApp.swift */,
 				8D3C3F37282FC3DD00FC8942 /* Views */,
+				8D0FE34328317C2E0061DF8D /* ViewModel */,
 				8D3C3F39282FC42C00FC8942 /* Utillities */,
 				8D3C3F38282FC42400FC8942 /* Model */,
 				8DDD2033282FC06C006BFD14 /* Assets.xcassets */,
