@@ -20,6 +20,12 @@ struct CryptoListView: View {
             VStack {
                 Divider()
                 VStack(alignment: .leading) {
+                    if !viewModel.isSearch {
+                        TopRankView(viewModel: viewModel)
+                            .padding(.bottom, 22)
+                            .padding(.horizontal, 8)
+                    }
+                    
                     if !viewModel.isShowSearchNoResultView {
                         Text("Buy, sell and hold crypto")
                             .font(.system(size: 16))
@@ -81,13 +87,13 @@ struct CryptoListView: View {
                 }
                 .padding(.horizontal, 8)
                 .padding(.top, 20)
-                .onAppear {
-                    viewModel.getCrytoCoin()
-                }
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
         .searchable(text: $searchQuery)
+        .onAppear {
+            viewModel.getCrytoCoin()
+        }
         .onChange(of: searchQuery) { searchQuery in
             viewModel.searchCoins(searchQuery: searchQuery)
         }
