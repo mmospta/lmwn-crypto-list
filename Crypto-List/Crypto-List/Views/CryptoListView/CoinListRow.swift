@@ -37,7 +37,7 @@ struct CoinListRow: View {
                 Text(String(format: "$ %.4f", Double(coin.price ?? "0") ?? 0))
                     .font(.system(size: 12))
                     .fontWeight(.bold)
-                    .foregroundColor(Color.init(hex: "#333333"))
+                    .foregroundColor(colorBlack)
                 HStack(spacing: 2) {
                     let change = Double(coin.change ?? "0") ?? 0
                     if change >= 0 {
@@ -47,7 +47,7 @@ struct CoinListRow: View {
                         Text(coin.change ?? "0")
                             .font(.system(size: 12))
                             .fontWeight(.bold)
-                            .foregroundColor(Color.init(hex: "#13BC24"))
+                            .foregroundColor(colorGreen)
                     } else {
                         Image("RedArrow")
                             .resizable()
@@ -55,14 +55,14 @@ struct CoinListRow: View {
                         Text(coin.change ?? "0")
                             .font(.system(size: 12))
                             .fontWeight(.bold)
-                            .foregroundColor(Color.init(hex: "#F82D2D"))
+                            .foregroundColor(colorRed)
                     }
                 }
             }
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 21)
-        .background(Color.init(hex: "#F9F9F9"))
+        .background(colorLightGray)
         .cornerRadius(8)
         .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
     }

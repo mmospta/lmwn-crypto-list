@@ -17,7 +17,7 @@ struct ErrorView: View {
                 Text("Could not load data")
                     .font(.system(size: 16))
                     .fontWeight(.regular)
-                    .foregroundColor(Color.init(hex: "#333333"))
+                    .foregroundColor(colorBlack)
                 Button {
                     viewModel.clearCoins()
                     viewModel.getCrytoCoin()
@@ -25,7 +25,7 @@ struct ErrorView: View {
                     Text("Try again")
                         .font(.system(size: 14))
                         .fontWeight(.bold)
-                        .foregroundColor(Color.init(hex: "#38A0FF"))
+                        .foregroundColor(colorBlue)
                 }
             }
             Spacer()

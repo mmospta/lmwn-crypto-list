@@ -14,11 +14,11 @@ struct SearchNoResultView: View {
             Text("Sorry")
                 .font(.system(size: 20))
                 .fontWeight(.bold)
-                .foregroundColor(Color.init(hex: "#333333"))
+                .foregroundColor(colorBlack)
             Text("No result match this keyword")
                 .font(.system(size: 16))
                 .fontWeight(.regular)
-                .foregroundColor(Color.init(hex: "#999999"))
+                .foregroundColor(colorGray)
             Spacer()
         }
     }

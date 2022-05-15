@@ -28,7 +28,7 @@ struct CoinDetailView: View {
                                 Text(coin.name)
                                     .font(.system(size: 18))
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color.init(hex: coin.color ?? "#333333"))
+                                    .foregroundColor(colorBlack)
                                 Text("(\(coin.symbol))")
                                     .font(.system(size: 18))
                                     .fontWeight(.regular)
@@ -57,7 +57,7 @@ struct CoinDetailView: View {
                     Text("No description")
                         .font(.system(size: 12))
                         .fontWeight(.bold)
-                        .foregroundColor(Color.init(hex: "#999999"))
+                        .foregroundColor(colorGray)
                         .padding()
                     
                     Spacer()
@@ -69,7 +69,7 @@ struct CoinDetailView: View {
                     Image(systemName: "xmark")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(.init(hex: "#444444"))
+                        .foregroundColor(colorMidGray)
                 }
                 .padding(16)
             }

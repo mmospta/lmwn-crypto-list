@@ -36,7 +36,7 @@ struct TopRankItemView: View {
                     Text(coin.change ?? "0")
                         .font(.system(size: 12))
                         .fontWeight(.bold)
-                        .foregroundColor(Color.init(hex: "#13BC24"))
+                        .foregroundColor(colorGreen)
                 } else {
                     Image("RedArrow")
                         .resizable()
@@ -44,13 +44,13 @@ struct TopRankItemView: View {
                     Text(coin.change ?? "0")
                         .font(.system(size: 12))
                         .fontWeight(.bold)
-                        .foregroundColor(Color.init(hex: "#F82D2D"))
+                        .foregroundColor(colorRed)
                 }
             }
         }
         .frame(maxWidth: .infinity)
         .padding(16)
-        .background(Color.init(hex: "#F9F9F9"))
+        .background(colorLightGray)
         .cornerRadius(8)
         .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
     }

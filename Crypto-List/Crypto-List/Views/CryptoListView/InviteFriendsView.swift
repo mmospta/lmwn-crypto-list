@@ -25,12 +25,12 @@ struct InviteFriendsView: View {
                 + Text("[Invite your friend](https://careers.lmwn.com)")
                     .font(.system(size: 16))
                     .fontWeight(.bold)
-                    .foregroundColor(Color.init(hex: "#38A0FF"))
+                    .foregroundColor(colorBlue)
             }
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 21)
-        .background(Color.init(hex: "#C5E6FF"))
+        .background(colorLightBlue)
         .cornerRadius(8)
         .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
     }

@@ -12,19 +12,19 @@ struct TopRankSectionHeader: View {
         Text("Top ")
             .font(.system(size: 18))
             .fontWeight(.bold)
-            .foregroundColor(Color.init(hex: "#333333"))
+            .foregroundColor(colorBlack)
         + Text("3 ")
             .font(.system(size: 20))
             .fontWeight(.bold)
-            .foregroundColor(Color.init(hex: "#C52222"))
+            .foregroundColor(colorTomatoRed)
         + Text("rank ")
             .font(.system(size: 18))
             .fontWeight(.semibold)
-            .foregroundColor(Color.init(hex: "#333333"))
+            .foregroundColor(colorBlack)
         + Text("crypto")
             .font(.system(size: 18))
             .fontWeight(.semibold)
-            .foregroundColor(Color.init(hex: "#333333"))
+            .foregroundColor(colorBlack)
     }
 }
 

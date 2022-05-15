@@ -11,6 +11,7 @@
 		8D0FE3402831670D0061DF8D /* TopRankSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE33F2831670D0061DF8D /* TopRankSectionHeader.swift */; };
 		8D0FE342283167580061DF8D /* CryptoListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE341283167580061DF8D /* CryptoListHeader.swift */; };
 		8D0FE34828317D430061DF8D /* InviteFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE34728317D430061DF8D /* InviteFriendsView.swift */; };
+		8D0FE34A28318F860061DF8D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE34928318F860061DF8D /* Constant.swift */; };
 		8D3C3F3C282FC4B000FC8942 /* CryptoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C3F3B282FC4B000FC8942 /* CryptoListView.swift */; };
 		8D3C3F3E282FC5B400FC8942 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C3F3D282FC5B400FC8942 /* NetworkManager.swift */; };
 		8D486C68282FC6290014CB7A /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D486C67282FC6290014CB7A /* CryptoListViewModel.swift */; };
@@ -60,6 +61,7 @@
 		8D0FE33F2831670D0061DF8D /* TopRankSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRankSectionHeader.swift; sourceTree = "<group>"; };
 		8D0FE341283167580061DF8D /* CryptoListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListHeader.swift; sourceTree = "<group>"; };
 		8D0FE34728317D430061DF8D /* InviteFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsView.swift; sourceTree = "<group>"; };
+		8D0FE34928318F860061DF8D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8D3C3F3B282FC4B000FC8942 /* CryptoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListView.swift; sourceTree = "<group>"; };
 		8D3C3F3D282FC5B400FC8942 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8D486C67282FC6290014CB7A /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				8D3C3F3D282FC5B400FC8942 /* NetworkManager.swift */,
 				8D486C6D282FF7BD0014CB7A /* HexColor.swift */,
 				8D486C7328300E320014CB7A /* FormatPoint.swift */,
+				8D0FE34928318F860061DF8D /* Constant.swift */,
 			);
 			path = Utillities;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D486C6A282FCF8B0014CB7A /* CoinResponse.swift in Sources */,
+				8D0FE34A28318F860061DF8D /* Constant.swift in Sources */,
 				8D486C6C282FF45A0014CB7A /* CoinListRow.swift in Sources */,
 				8D486C68282FC6290014CB7A /* CryptoListViewModel.swift in Sources */,
 				8D7E6D1B28313790009F9737 /* TopRankItemView.swift in Sources */,
