@@ -10,6 +10,7 @@
 		2F47998FF94DEC2620196522 /* Pods_Crypto_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D997CF1E785E03C2D0832331 /* Pods_Crypto_List.framework */; };
 		8D0FE3402831670D0061DF8D /* TopRankSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE33F2831670D0061DF8D /* TopRankSectionHeader.swift */; };
 		8D0FE342283167580061DF8D /* CryptoListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE341283167580061DF8D /* CryptoListHeader.swift */; };
+		8D0FE34828317D430061DF8D /* InviteFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FE34728317D430061DF8D /* InviteFriendsView.swift */; };
 		8D3C3F3C282FC4B000FC8942 /* CryptoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C3F3B282FC4B000FC8942 /* CryptoListView.swift */; };
 		8D3C3F3E282FC5B400FC8942 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C3F3D282FC5B400FC8942 /* NetworkManager.swift */; };
 		8D486C68282FC6290014CB7A /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D486C67282FC6290014CB7A /* CryptoListViewModel.swift */; };
@@ -58,6 +59,7 @@
 		88CBE85D6C933887A64F0D5D /* Pods-Crypto-ListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crypto-ListTests.release.xcconfig"; path = "Target Support Files/Pods-Crypto-ListTests/Pods-Crypto-ListTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D0FE33F2831670D0061DF8D /* TopRankSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRankSectionHeader.swift; sourceTree = "<group>"; };
 		8D0FE341283167580061DF8D /* CryptoListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListHeader.swift; sourceTree = "<group>"; };
+		8D0FE34728317D430061DF8D /* InviteFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsView.swift; sourceTree = "<group>"; };
 		8D3C3F3B282FC4B000FC8942 /* CryptoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListView.swift; sourceTree = "<group>"; };
 		8D3C3F3D282FC5B400FC8942 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8D486C67282FC6290014CB7A /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				8D3C3F3B282FC4B000FC8942 /* CryptoListView.swift */,
 				8D486C6B282FF45A0014CB7A /* CoinListRow.swift */,
 				8D0FE341283167580061DF8D /* CryptoListHeader.swift */,
+				8D0FE34728317D430061DF8D /* InviteFriendsView.swift */,
 			);
 			path = CryptoListView;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				8D3C3F3E282FC5B400FC8942 /* NetworkManager.swift in Sources */,
 				8D486C88283127A10014CB7A /* SearchNoResultView.swift in Sources */,
 				8D486C6E282FF7BD0014CB7A /* HexColor.swift in Sources */,
+				8D0FE34828317D430061DF8D /* InviteFriendsView.swift in Sources */,
 				8D0FE342283167580061DF8D /* CryptoListHeader.swift in Sources */,
 				8D0FE3402831670D0061DF8D /* TopRankSectionHeader.swift in Sources */,
 				8DDD2030282FC06B006BFD14 /* Crypto_ListApp.swift in Sources */,
