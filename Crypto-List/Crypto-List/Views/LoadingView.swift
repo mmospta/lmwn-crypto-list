@@ -12,7 +12,7 @@ struct LoadingView: View {
         HStack {
             Spacer()
             ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
                 .scaleEffect(1.5)
             Spacer()
         }
