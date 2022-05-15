@@ -10,29 +10,30 @@ import Foundation
 // MARK: - CoinResponse
 struct CoinResponse: Codable {
     let status: String
-    let data: CoinsData
+    let data: CoinData
 }
 
 // MARK: - DataClass
-struct CoinsData: Codable {
+struct CoinData: Codable {
     let stats: Stats
     let coins: [Coin]
 }
 
 // MARK: - Coin
 struct Coin: Codable {
-    var uuid, symbol, name: String
+    let uuid, symbol, name: String
     let color: String?
     let iconURL: String
-    let marketCap, price: String
-    let listedAt, tier: Int
-    let change: String
+    let marketCap, price: String?
+    let listedAt: Int?
+    let tier: Int
+    let change: String?
     let rank: Int
-    let sparkline: [String]
+    let sparkline: [String?]
     let lowVolume: Bool
     let coinrankingURL: String
-    let the24HVolume, btcPrice: String
-
+    let the24HVolume, btcPrice: String?
+    
     enum CodingKeys: String, CodingKey {
         case uuid, symbol, name, color
         case iconURL = "iconUrl"
@@ -47,7 +48,7 @@ struct Coin: Codable {
 struct Stats: Codable {
     let total, totalCoins, totalMarkets, totalExchanges: Int
     let totalMarketCap, total24HVolume: String
-
+    
     enum CodingKeys: String, CodingKey {
         case total, totalCoins, totalMarkets, totalExchanges, totalMarketCap
         case total24HVolume = "total24hVolume"
