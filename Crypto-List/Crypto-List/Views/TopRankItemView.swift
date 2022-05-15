@@ -1,5 +1,5 @@
 //
-//  TopRankCard.swift
+//  TopRankItemView.swift
 //  Crypto-List
 //
 //  Created by Phonthep Aungkanukulwit on 15/5/2565 BE.
@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSVGCoder
 import SDWebImageSwiftUI
 
-struct TopRankCard: View {
+struct TopRankItemView: View {
     let coin: Coin
     
     var body: some View {
@@ -58,7 +58,7 @@ struct TopRankCard: View {
 
 struct TopRankCard_Previews: PreviewProvider {
     static var previews: some View {
-        TopRankCard(coin: MockData.sampleCoin)
+        TopRankItemView(coin: MockData.sampleCoin)
             .previewLayout(.fixed(width: 110, height: 140))
     }
 }

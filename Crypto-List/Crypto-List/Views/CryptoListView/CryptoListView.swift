@@ -11,8 +11,16 @@ struct CryptoListView: View {
     @StateObject private var viewModel = CryptoListViewModel()
     @State var searchQuery = ""
     
+    let columnSpacing: CGFloat = 8
+    var gridLayout: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: columnSpacing), count: 3)
+    }
+    
     init() {
         UITableView.appearance().showsVerticalScrollIndicator = false
+        UITableViewCell.appearance().backgroundColor = .clear
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().sectionIndexBackgroundColor = .clear
     }
     
     var body: some View {
@@ -20,19 +28,6 @@ struct CryptoListView: View {
             VStack {
                 Divider()
                 VStack(alignment: .leading) {
-                    if !viewModel.isSearch {
-                        TopRankView(viewModel: viewModel)
-                            .padding(.bottom, 22)
-                            .padding(.horizontal, 8)
-                    }
-                    
-                    if !viewModel.isShowSearchNoResultView {
-                        Text("Buy, sell and hold crypto")
-                            .font(.system(size: 16))
-                            .fontWeight(.bold)
-                            .padding(.horizontal, 8)
-                    }
-                    
                     if viewModel.isFirstShowErrorView {
                         ErrorView(viewModel: viewModel)
                             .padding(16)
@@ -46,29 +41,67 @@ struct CryptoListView: View {
                     } else if viewModel.isShowSearchNoResultView {
                         SearchNoResultView()
                     } else {
-                        List(viewModel.coins, id: \.rank) { coin in
-                            CoinListRow(coin: coin)
+                        List {
+                            if !viewModel.isSearch {
+                                Section(header: TopRankSectionHeader()) {
+                                    LazyVGrid(columns: gridLayout) {
+                                        ForEach(viewModel.coins, id: \.rank) { coin in
+                                            if coin.rank <= 3 {
+                                                TopRankItemView(coin: coin)
+                                                    .onTapGesture {
+                                                        viewModel.isShowingSheet = true
+                                                        viewModel.coinDetail = coin
+                                                    }
+                                                    .sheet(isPresented: $viewModel.isShowingSheet,
+                                                           onDismiss: {
+                                                        viewModel.isShowingSheet = false
+                                                    }, content: {
+                                                        if let coinDetail = viewModel.coinDetail {
+                                                            CoinDetailView(isShowingSheet: $viewModel.isShowingSheet, coin: coinDetail)
+                                                        }
+                                                    })
+                                            }
+                                        }
+                                    }
+                                }
                                 .listRowSeparator(.hidden)
-                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
-                                .onTapGesture {
-                                    viewModel.isShowingSheet = true
-                                    viewModel.coinDetail = coin
-                                }
-                                .sheet(isPresented: $viewModel.isShowingSheet, onDismiss: {
-                                    viewModel.isShowingSheet = false
-                                }, content: {
-                                    if let coinDetail = viewModel.coinDetail {
-                                        CoinDetailView(isShowingSheet: $viewModel.isShowingSheet, coin: coinDetail)
+                                .listSectionSeparator(.hidden)
+                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.top, 16)
+                                .padding(.horizontal, 8)
+                            }
+                            
+                            Section(header: CryptoListHeader()) {
+                                ForEach(viewModel.coins, id: \.rank) { coin in
+                                    if !viewModel.isSearch, coin.rank > 3 {
+                                        CoinListRow(coin: coin)
+                                            .onTapGesture {
+                                                viewModel.isShowingSheet = true
+                                                viewModel.coinDetail = coin
+                                            }
+                                            .sheet(isPresented: $viewModel.isShowingSheet, onDismiss: {
+                                                viewModel.isShowingSheet = false
+                                            }, content: {
+                                                if let coinDetail = viewModel.coinDetail {
+                                                    CoinDetailView(isShowingSheet: $viewModel.isShowingSheet, coin: coinDetail)
+                                                }
+                                            })
+                                            .onAppear {
+                                                if let lastRow = viewModel.coins.last?.rank,
+                                                   lastRow == coin.rank {
+                                                    viewModel.fetchCoin(offset: lastRow)
+                                                }
+                                            }
+                                    } else if viewModel.isSearch {
+                                        CoinListRow(coin: coin)
                                     }
-                                })
-                                .onAppear {
-                                    if let lastRow = viewModel.coins.last?.rank,
-                                       lastRow == coin.rank {
-                                        viewModel.fetchCoin(offset: lastRow)
-                                    }
                                 }
+                            }
+                            .listRowSeparator(.hidden)
+                            .listSectionSeparator(.hidden)
+                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
                         }
-                        .listStyle(.plain)
+                        .listStyle(.grouped)
                         .refreshable {
                             if !viewModel.isSearch {
                                 viewModel.clearCoins()
@@ -76,6 +109,7 @@ struct CryptoListView: View {
                             }
                         }
                     }
+                    
                     
                     if viewModel.isLoading {
                         LoadingView()
@@ -85,9 +119,8 @@ struct CryptoListView: View {
                         ErrorView(viewModel: viewModel)
                     }
                 }
-                .padding(.horizontal, 8)
-                .padding(.top, 20)
                 .navigationBarTitleDisplayMode(.inline)
+                .padding(.horizontal, 8)
             }
         }
         .searchable(text: $searchQuery)

@@ -94,6 +94,7 @@ class CryptoListViewModel: ObservableObject {
             getCrytoCoin()
         } else {
             isSearch = true
+            clearCoins()
             fetchSearchCoin(searchQuery: searchQuery)
         }
     }
