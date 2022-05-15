@@ -21,6 +21,12 @@ struct CryptoListView: View {
                 .fontWeight(.bold)
                 .padding(.horizontal, 8)
             
+            if viewModel.isFirstShowErrorView {
+                ErrorView(viewModel: viewModel)
+                    .padding(16)
+                Spacer()
+            }
+            
             if viewModel.isFirstLoading {
                 LoadingView()
                     .padding(16)
@@ -60,6 +66,10 @@ struct CryptoListView: View {
             
             if viewModel.isLoading {
                 LoadingView()
+            }
+            
+            if viewModel.isShowErrorView {
+                ErrorView(viewModel: viewModel)
             }
         }
         .padding(.horizontal, 8)
