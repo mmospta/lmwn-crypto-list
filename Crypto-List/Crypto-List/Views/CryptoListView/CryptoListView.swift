@@ -15,31 +15,47 @@ struct CryptoListView: View {
     }
     
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("Buy, sell and hold crypto")
-                    .font(.system(size: 16))
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 8)
-                List(viewModel.coins, id: \.uuid) { coin in
-                    CoinListRow(coin: coin)
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
-                }
-                .listStyle(.plain)
-                .onAppear {
-                    viewModel.getCrytoCoin()
-                }
-                .refreshable {
-                    viewModel.getCrytoCoin()
-                }
+        VStack(alignment: .leading) {
+            Text("Buy, sell and hold crypto")
+                .font(.system(size: 16))
+                .fontWeight(.bold)
+                .padding(.horizontal, 8)
+            List(viewModel.coins, id: \.rank) { coin in
+                CoinListRow(coin: coin)
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
+                    .onTapGesture {
+                        viewModel.isShowingSheet = true
+                        viewModel.coinDetail = coin
+                    }
+                    .sheet(isPresented: $viewModel.isShowingSheet, onDismiss: {
+                        viewModel.isShowingSheet = false
+                    }, content: {
+                        if let coinDetail = viewModel.coinDetail {
+                            CoinDetailView(isShowingSheet: $viewModel.isShowingSheet, coin: coinDetail)
+                        }
+                    })
+                    .onAppear {
+                        if let lastRow = viewModel.coins.last?.rank,
+                           lastRow == coin.rank {
+                            viewModel.fetchCoin(offset: lastRow + 10)
+                        }
+                    }
             }
-            .padding(.horizontal, 8)
+            .listStyle(.plain)
+            .onAppear {
+                viewModel.getCrytoCoin()
+            }
+            .refreshable {
+                viewModel.clearCoins()
+                viewModel.getCrytoCoin()
+            }
             
             if viewModel.isLoading {
                 LoadingView()
             }
         }
+        .padding(.horizontal, 8)
     }
 }
 
