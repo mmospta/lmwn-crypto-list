@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Darwin
 
 class CryptoListViewModel: ObservableObject {
     @Published var coins: [Coin] = []
@@ -17,6 +18,8 @@ class CryptoListViewModel: ObservableObject {
     @Published var isShowErrorView = false
     @Published var isShowSearchNoResultView = false
     @Published var isSearch = false
+    
+
     
     func getCrytoCoin() {
         isFirstLoading = true
@@ -107,5 +110,17 @@ class CryptoListViewModel: ObservableObject {
             clearCoins()
             getCrytoCoin()
         }
+    }
+    
+    var n = 0
+    
+    func insertInviteFriends(row: Int) -> Bool {
+        let value = 5 * pow(2, n)
+        let result = NSDecimalNumber(decimal: value + 3).intValue
+        if row == result {
+            n += 1
+            return true
+        }
+        return false
     }
 }

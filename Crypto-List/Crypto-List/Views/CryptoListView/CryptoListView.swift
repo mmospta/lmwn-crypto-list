@@ -74,6 +74,9 @@ struct CryptoListView: View {
                             Section(header: CryptoListHeader()) {
                                 ForEach(viewModel.coins, id: \.rank) { coin in
                                     if !viewModel.isSearch, coin.rank > 3 {
+//                                        if viewModel.insertInviteFriends(row: coin.rank) {
+//                                            InviteFriendsView()
+//                                        }
                                         CoinListRow(coin: coin)
                                             .onTapGesture {
                                                 viewModel.isShowingSheet = true
